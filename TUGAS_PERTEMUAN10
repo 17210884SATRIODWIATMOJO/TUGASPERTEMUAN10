@@ -1,0 +1,75 @@
+import pandas as pd
+
+"""
+NAMA    = SATRIO DWIATMOJO
+KELAS   = 17.1C.12
+NIM     = 17210884
+"""
+# variabel
+# TUGAS tambahan variable
+# 1 tugas
+# 2 absen
+
+list_nim = []
+list_nama = []
+list_tugas = []
+list_absen = []
+list_uts = []
+list_uas = []
+list_total = []
+list_grd = []
+
+
+ulang = 5
+
+# tambahkan perhitungan nilai tugas dan absen
+# lakukan perhitungan % nilai tugas 20% ,absen 10%, uts 30% uas 40%
+# buat seleksi kondisi / if else
+# if
+# else
+
+for i in range(ulang):
+    print("Data Ke : " + str(i+1))
+    list_nim.append(input("Nim : "))
+    list_nama.append(input("Nama : "))
+    list_tugas.append(int(input("Nilai TUGAS : ")))
+    list_absen.append(int(input("Nilai ABSEN : ")))
+    list_uts.append(int(input("Nilai UTS : ")))
+    list_uas.append(int(input("Nilai UAS : ")))
+
+for i in range(ulang):
+    list_total.append(list_uts[i]*0.3 + list_uas[i]
+                      * 0.4 + list_absen[i]*0.1 + list_tugas[i]*0.2)
+
+for i in range(ulang):
+    if list_total[i] >= 85:
+        list_grd.append("GRADE A")
+    elif list_total[i] >= 75:
+        list_grd.append("GRADE B")
+    elif list_total[i] >= 65:
+        list_grd.append("GRADE C")
+    elif list_total[i] >= 55:
+        list_grd.append("GRADE D")
+    else:
+        list_grd.append("GRADE E")
+
+
+# output dibuat variabel mhs
+
+mhs = {
+    "NIM": list_nim,
+    "Nama Lengkap": list_nama,
+    "Nilai TUGAS": list_tugas,
+    "Nilai ABSEN": list_absen,
+    "Nilai UTS": list_uts,
+    "Nilai UAS": list_uas,
+    "Rata - rata Nilai": list_total,
+    "GRADE": list_grd,
+}
+
+data_mhs = pd.DataFrame(mhs, index=['1', '2', '3', '4', '5'])
+
+
+print("====================================================DATA NILAI MAHASISWA=====================================================")
+print(data_mhs)
+print("=============================================================================================================================")
